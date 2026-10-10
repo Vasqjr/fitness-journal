@@ -3,7 +3,8 @@
 A full-stack fitness tracking application inspired by Strengthlog. Log workouts, track exercises, monitor progress, and visualize performance over time.
 
 > 🚧 **In Progress** — backend and frontend in active development.
-
+## Live Project Link
+https://fitness-journal-frontend-pmf0w2pu2-jr-ay-v20.vercel.app/
 ---
 
 ## Repositories
