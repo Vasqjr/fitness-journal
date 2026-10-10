@@ -4,7 +4,7 @@ A full-stack fitness tracking application inspired by Strengthlog. Log workouts,
 
 > 🚧 **In Progress** — backend and frontend in active development.
 ## Live Project Link
-<small>https://fitness-journal-frontend-pmf0w2pu2-jr-ay-v20.vercel.app/</small>
+#### https://fitness-journal-frontend-pmf0w2pu2-jr-ay-v20.vercel.app/
 ---
 
 ## Repositories
