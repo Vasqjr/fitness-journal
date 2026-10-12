@@ -8,6 +8,7 @@ import WorkoutDetailPage from './pages/WorkoutDetailPage';
 import ProgressPage from './pages/ProgressPage';
 import ExercisesPage from './pages/ExercisesPage';
 import Navbar from './components/Navbar';
+import './App.css';
 
 function ProtectedRoute({ children }: { children: React.ReactElement }) {
   const { isAuthenticated } = useAuth();

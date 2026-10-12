@@ -28,33 +28,41 @@ export default function RegisterPage() {
 
   return (
     <div className="register-page-wrap">
-      <h1>Fitness Journal</h1>
-      {error && <p style={{ color: 'red' }}>{error}</p>}
-      <form onSubmit={handleSubmit}>
-        <input
-          type="text"
-          placeholder="Display Name"
-          value={displayName}
-          onChange={e => setDisplayName(e.target.value)}
-          className="register-field"
-        />
-        <input
-          type="email"
-          placeholder="Email"
-          value={email}
-          onChange={e => setEmail(e.target.value)}
-          className="register-field"
-        />
-        <input
-          type="password"
-          placeholder="Password"
-          value={password}
-          onChange={e => setPassword(e.target.value)}
-          className="register-field"
-        />
-        <button type="submit" className='register-field register-button'>Register</button>
-      </form>
-      <p className='register-info-field'>Already have an account? <Link to="/login" className='register-link'>Log in</Link></p>
+      <div className='register-card'>
+        <h1>Fitness Journal</h1>
+        {error && <p style={{ color: 'red' }}>{error}</p>}
+        <form onSubmit={handleSubmit} className='register-form'>
+          <div>
+            <h2>Display Name</h2>
+            <input
+              type="text"
+              placeholder="Display Name"
+              value={displayName}
+              onChange={e => setDisplayName(e.target.value)}
+              className="register-field"
+            /></div>
+          <div><h2>Email</h2>
+            <input
+              type="email"
+              placeholder="Email"
+              value={email}
+              onChange={e => setEmail(e.target.value)}
+              className="register-field"
+            /></div>
+          <div>
+            <h2>Password</h2>
+            <input
+              type="password"
+              placeholder="Password"
+              value={password}
+              onChange={e => setPassword(e.target.value)}
+              className="register-field"
+            />
+          </div>
+          <button type="submit" className='register-field register-button'>Register</button>
+        </form>
+        <p className='register-info-field'>Already have an account? <Link to="/login" className='register-link'>Log in</Link></p>
+      </div>
     </div>
   );
 }

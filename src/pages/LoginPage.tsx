@@ -27,30 +27,35 @@ export default function LoginPage() {
 
   return (
     <div className="login-page-wrap">
-      <h1>Fitness Journal</h1>
-      {error && <p style={{ color: 'red' }}>{error}</p>}
-      <form onSubmit={handleSubmit}>
-        <div>
-          <input
-            type="email"
-            placeholder="Email"
-            value={email}
-            onChange={e => setEmail(e.target.value)}
-            className="login-field"
-          />
-        </div>
-        <div>
-          <input
-            type="password"
-            placeholder="Password"
-            value={password}
-            onChange={e => setPassword(e.target.value)}
-            className="login-field"
-          />
-        </div>
-        <button type="submit" className='login-field login-button'>Log in</button>
-      </form>
-      <p className='login-info-field'>Don't have an account? <Link to="/register" className='login-link'>Register</Link></p>
+      <div className="login-card">
+        <h1>Fitness Journal</h1>
+        {error && <p style={{ color: 'red' }}>{error}</p>}
+        <form onSubmit={handleSubmit}>
+          <div>
+            <h2>Email</h2>
+            <input
+              type="email"
+              placeholder="Email"
+              value={email}
+              onChange={e => setEmail(e.target.value)}
+              className="login-field"
+            />
+          </div>
+          <div>
+            <h2>Password</h2>
+            <input
+              type="password"
+              placeholder="Password"
+              value={password}
+              onChange={e => setPassword(e.target.value)}
+              className="login-field"
+            />
+          </div>
+          <button type="submit" className='login-field login-button'>Log in</button>
+        </form>
+        <p className='login-info-field'>Don't have an account? <Link to="/register" className='login-link'>Register</Link></p>
+      </div>
+
     </div>
   );
 }

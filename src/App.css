@@ -70,8 +70,21 @@
 }
 
 .login-page-wrap, .register-page-wrap {
-  margin: auto;
-  width: 25rem;
+  margin-left: min(25vw, 40rem);
+  display: flex;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+}
+
+.login-card, .register-card {
+  background-color: #ffffff;
+  padding: 1rem;
+  border-radius: 2rem;
+  height: 60vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
 }
 
 .login-field, .register-field {
@@ -82,6 +95,7 @@
   margin: 0.5rem;
   font-size: 1.2rem;
   border-style: none;
+  background-color: var(--bg);
 }
 
 .login-button, .register-button, .logout-button, .workout-button{
