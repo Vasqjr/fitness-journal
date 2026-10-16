@@ -32,17 +32,17 @@ export default function ExerciseSelector({ value, onChange }: Props) {
   }, {} as Record<string, Exercise[]>);
 
   return (
-    <div style={{ marginBottom: 8 }}>
+    <div id="exercise-selector-wrap">
       <input
         placeholder="Search exercises..."
         value={filter}
         onChange={e => setFilter(e.target.value)}
-        style={{ display: 'block', width: '100%', marginBottom: 4, padding: 8, boxSizing: 'border-box' }}
+        className="exercise-search-input"
       />
       <select
         value={value}
         onChange={e => onChange(e.target.value)}
-        style={{ display: 'block', width: '100%', padding: 8 }}
+        className="search-exercises-list"
         size={5}
       >
         {Object.entries(grouped).map(([group, exs]) => (

@@ -30,16 +30,11 @@ export default function WorkoutsPage() {
 
   return (
     <div id="workout-page-wrapper">
-        
-        <span>Fitness Journal</span>
-        <button className="workout-button" onClick={() => setShowForm(!showForm)}>
-          + New Workout
-        </button>
-
-
       <div className="training-log-content">
         <h1>Training Log</h1>
-
+        <button className="standard-button" onClick={() => setShowForm(!showForm)}>
+          + New Workout
+        </button>
         {showForm && (
           <form onSubmit={handleCreate}>
             <input

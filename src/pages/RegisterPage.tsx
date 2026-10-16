@@ -27,7 +27,7 @@ export default function RegisterPage() {
   };
 
   return (
-    <div className="register-page-wrap">
+    <div id="register-page-wrap">
       <div className='register-card'>
         <h1>Fitness Journal</h1>
         {error && <p style={{ color: 'red' }}>{error}</p>}
@@ -59,7 +59,7 @@ export default function RegisterPage() {
               className="register-field"
             />
           </div>
-          <button type="submit" className='register-field register-button'>Register</button>
+          <button type="submit" className='register-field standard-button'>Register</button>
         </form>
         <p className='register-info-field'>Already have an account? <Link to="/login" className='register-link'>Log in</Link></p>
       </div>

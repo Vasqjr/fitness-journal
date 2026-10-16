@@ -23,94 +23,57 @@ export default function Navbar() {
     };
 
     return (
-        <nav style={{
-            display: 'flex',
-            justifyContent: 'space-between',
-            alignItems: 'center',
-            padding: '0 24px',
-            height: 56,
-            backgroundColor: '#fff',
-            borderBottom: '1px solid #e5e7eb',
-            boxShadow: '0 1px 3px rgba(0,0,0,0.05)',
-            position: 'sticky',
-            top: 0,
-            zIndex: 100
-        }}>
-            <div style={{ display: 'flex', alignItems: 'center', gap: 32 }}>
+        <nav id="navigation-wrap">
+            <div className="navigation-items">
                 <span
                     onClick={() => navigate('/workouts')}
-                    style={{ fontWeight: 700, fontSize: 18, cursor: 'pointer', color: '#ac63f1' }}
+                    className='navigation-icon'
                 >
-                    FitJournal
+                    Fitness Journal
                 </span>
-                <div style={{ display: 'flex', gap: 24 }}>
+                <div className="navigation-elements">
                     <span
                         onClick={() => navigate('/workouts')}
                         style={{
-                            cursor: 'pointer',
-                            padding: '16px 0',
-                            fontSize: 14,
-                            fontWeight: 500,
                             ...isActive('/workouts')
                         }}
+                        className='nav-element'
                     >
                         Workouts
                     </span>
                     <span
                         onClick={() => navigate('/progress')}
                         style={{
-                            cursor: 'pointer',
-                            padding: '16px 0',
-                            fontSize: 14,
-                            fontWeight: 500,
                             ...isActive('/progress')
                         }}
+                        className='nav-element'
                     >
                         Progress
                     </span>
                     <span
                         onClick={() => navigate('/exercises')}
                         style={{
-                            cursor: 'pointer',
-                            padding: '16px 0',
-                            fontSize: 14,
-                            fontWeight: 500,
                             ...isActive('/exercises')
                         }}
+                        className='nav-element'
                     >
                         Exercises
                     </span>
                 </div>
             </div>
-            <div style={{ display: 'flex', alignItems: 'center', gap: 16 }}>
-                <span style={{ fontSize: 14, color: '#666' }}>
+            <div className="navigation-utilities">
+                <span className='nav-display-name'>
                     {user?.displayName}
                 </span>
                 <button
                     onClick={toggleUnit}
-                    style={{
-                        padding: '6px 14px',
-                        borderRadius: 6,
-                        border: '1px solid #e5e7eb',
-                        background: '#fff',
-                        cursor: 'pointer',
-                        fontSize: 14,
-                        color: '#555'
-                    }}
+                    className='nav-utility'
                 >
                     {useMetric ? 'Switch to lbs' : 'Switch to kg'}
                 </button>
                 <button
                     onClick={logout}
-                    style={{
-                        padding: '6px 14px',
-                        borderRadius: 6,
-                        border: '1px solid #e5e7eb',
-                        background: '#fff',
-                        cursor: 'pointer',
-                        fontSize: 14,
-                        color: '#555'
-                    }}
+                    className='nav-utility'
                 >
                     Logout
                 </button>

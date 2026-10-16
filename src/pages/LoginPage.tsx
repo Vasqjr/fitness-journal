@@ -26,7 +26,7 @@ export default function LoginPage() {
   };
 
   return (
-    <div className="login-page-wrap">
+    <div id="login-page-wrap">
       <div className="login-card">
         <h1>Fitness Journal</h1>
         {error && <p style={{ color: 'red' }}>{error}</p>}
@@ -51,7 +51,7 @@ export default function LoginPage() {
               className="login-field"
             />
           </div>
-          <button type="submit" className='login-field login-button'>Log in</button>
+          <button type="submit" className='login-field login-button standard-button'>Log in</button>
         </form>
         <p className='login-info-field'>Don't have an account? <Link to="/register" className='login-link'>Register</Link></p>
       </div>

@@ -1,4 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+*, *::before, *::after {
+  box-sizing: border-box;
+}
 
 :root {
   --text: #6b6375;
@@ -6,7 +9,7 @@
   --bg: #edeff3;
   --border: #e5e4e7;
   --code-bg: #f4f3ec;
-  --accent: #aa3bff;
+  --accent: #ab5cff;
   --accent-bg: rgba(170, 59, 255, 0.1);
   --accent-border: rgba(170, 59, 255, 0.5);
   --social-bg: rgba(244, 243, 236, 0.5);
@@ -50,6 +53,10 @@
   #social .button-icon {
     filter: invert(1) brightness(2);
   }
+}
+
+body {
+  margin: 0;
 }
 
 #root {
