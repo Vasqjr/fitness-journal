@@ -158,11 +158,11 @@ The deployment runs two replicas with readiness and liveness probes on `/actuato
 - [x] JWT authentication
 - [x] Workout, exercise, and set CRUD endpoints
 - [x] React frontend — auth flow
-- [x] React frontend — workout logging UI
+- [ ] React frontend — workout logging UI
 - [x] Progress visualization, charts, and personal records
 - [x] Dockerized backend with Docker Compose
 - [x] Production deployment (Vercel + Railway)
 - [x] Kubernetes manifests for local cluster
-- [ ] CI pipeline (GitHub Actions)
-- [ ] JWT refresh tokens
-- [ ] Tighter CORS configuration for production domains
+- [x] CI pipeline (GitHub Actions)
+- [x] JWT refresh tokens
+- [x] Tighter CORS configuration for production domains
