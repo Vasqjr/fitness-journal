@@ -6,7 +6,7 @@ A full-stack fitness tracking application inspired by StrengthLog. Log workouts,
 
 ## Live Demo
 
-**Frontend:** fitness-journal-frontend.vercel.app
+**Frontend:** <fitness-journal-frontend.vercel.app/>
 
 The frontend is hosted on Vercel and talks to a Spring Boot API hosted on Railway.
 
