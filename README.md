@@ -30,7 +30,7 @@ Pages · Components · Auth Context · Axios (JWT interceptor)
         | REST / JSON over HTTPS
         ↓
 Spring Boot API (Railway)
-├── Controller Layer     (BaseController · Auth · Workout · Exercise · Set)
+├── Controller Layer     (BaseController · Auth · Workout · Exercise · Set · Progress)
 ├── Service Layer        (business logic)
 ├── Repository Layer     (Spring Data JPA)
 ├── Entity Layer         (User · Workout · Exercise · WorkoutSet · MuscleGroup)
