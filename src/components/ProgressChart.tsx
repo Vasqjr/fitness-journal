@@ -9,48 +9,44 @@ interface Props {
 export default function ProgressChart({ data, useMetric }: Props) {
   if (data.length === 0) {
     return (
-      <div style={{
-        padding: 40,
-        textAlign: 'center',
-        color: '#888',
-        border: '1px dashed #ccc',
-        borderRadius: 8
-      }}>
+      <div className="progress-chart-empty">
         No data yet for this exercise. Log some sets to see your progress!
       </div>
     );
   }
 
   return (
-    <ResponsiveContainer width="100%" height={300}>
-      <LineChart data={data} margin={{ top: 5, right: 20, left: 0, bottom: 5 }}>
-        <CartesianGrid strokeDasharray="3 3" />
-        <XAxis dataKey="date" tick={{ fontSize: 12 }} />
-        <YAxis yAxisId="left" tick={{ fontSize: 12 }} />
-        <YAxis yAxisId="right" orientation="right" tick={{ fontSize: 12 }} />
-        <Tooltip />
-        <Legend />
-        <Line
-          yAxisId="left"
-          type="monotone"
-          dataKey="maxWeightKg"
-          stroke="#6366f1"
-          name={useMetric ? "Max Weight (kg)" : "Max Weight (lbs)"}
-          strokeWidth={2}
-          dot={{ r: 4 }}
-          activeDot={{ r: 6 }}
-        />
-        <Line
-          yAxisId="right"
-          type="monotone"
-          dataKey="totalVolume"
-          stroke="#10b981"
-          name="Total Volume"
-          strokeWidth={2}
-          dot={{ r: 4 }}
-          activeDot={{ r: 6 }}
-        />
-      </LineChart>
-    </ResponsiveContainer>
+    <div id="progress-chart-wrap">
+      <ResponsiveContainer width="100%" height="100%">
+        <LineChart className="progress-chart" data={data}>
+          <CartesianGrid />
+          <XAxis dataKey="date" />
+          <YAxis yAxisId="left" />
+          <YAxis yAxisId="right" orientation="right" />
+          <Tooltip />
+          <Legend />
+          <Line
+            className="line-weight"
+            yAxisId="left"
+            type="monotone"
+            dataKey="maxWeightKg"
+            stroke="var(--chart-weight)"
+            name={useMetric ? "Max Weight (kg)" : "Max Weight (lbs)"}
+            dot={{ r: 4 }}
+            activeDot={{ r: 6 }}
+          />
+          <Line
+            className="line-volume"
+            yAxisId="right"
+            type="monotone"
+            dataKey="totalVolume"
+            stroke="var(--chart-volume)"
+            name="Total Volume"
+            dot={{ r: 4 }}
+            activeDot={{ r: 6 }}
+          />
+        </LineChart>
+      </ResponsiveContainer>
+    </div>
   );
 }
