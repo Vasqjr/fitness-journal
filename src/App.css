@@ -36,7 +36,7 @@
 
   .login-link,
   .register-link {
-    color: #ab5cff;
+    color: var(--accent);
     text-decoration: none;
     cursor: pointer;
   }

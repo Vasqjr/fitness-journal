@@ -30,7 +30,7 @@ export default function ProgressChart({ data, useMetric }: Props) {
             yAxisId="left"
             type="monotone"
             dataKey="maxWeightKg"
-            stroke="var(--chart-weight)"
+            stroke="#ab5cff"
             name={useMetric ? "Max Weight (kg)" : "Max Weight (lbs)"}
             dot={{ r: 4 }}
             activeDot={{ r: 6 }}
@@ -40,7 +40,7 @@ export default function ProgressChart({ data, useMetric }: Props) {
             yAxisId="right"
             type="monotone"
             dataKey="totalVolume"
-            stroke="var(--chart-volume)"
+            stroke="#ab5cff"
             name="Total Volume"
             dot={{ r: 4 }}
             activeDot={{ r: 6 }}
