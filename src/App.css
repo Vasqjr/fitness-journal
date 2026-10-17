@@ -180,6 +180,30 @@
     .recharts-line-curve {
       stroke-width: 2;
     }
+
+    .line-weight {
+      .recharts-line-curve {
+        stroke: var(--accent);
+      }
+
+      .recharts-line-dot,
+      .recharts-active-dot .recharts-dot {
+        fill: var(--accent);
+        stroke: var(--accent);
+      }
+    }
+
+    .line-volume {
+      .recharts-line-curve {
+        stroke: #10b981;
+      }
+
+      .recharts-line-dot,
+      .recharts-active-dot .recharts-dot {
+        fill: #10b981;
+        stroke: #10b981;
+      }
+    }
   }
 }
 
