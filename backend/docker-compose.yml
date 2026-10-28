@@ -1,0 +1,34 @@
+services:
+  db:
+    image: postgres:16-alpine
+    container_name: fj-postgres
+    environment:
+      POSTGRES_DB: fitnessjournal
+      POSTGRES_USER: fjuser
+      POSTGRES_PASSWORD: fjpass
+    ports:
+      - "5433:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U fjuser -d fitnessjournal"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+  app:
+    build: .
+    container_name: fj-app
+    ports:
+      - "8080:8080"
+    environment:
+      DB_URL: jdbc:postgresql://db:5432/fitnessjournal
+      DB_USERNAME: fjuser
+      DB_PASSWORD: fjpass
+      JWT_SECRET: local-dev-secret-key-change-in-production-min-32-chars
+    depends_on:
+      db:
+        condition: service_healthy
+
+volumes:
+  pgdata:
