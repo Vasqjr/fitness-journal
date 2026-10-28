@@ -1,0 +1,56 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: fitness-journal-backend
+  namespace: fitness-journal
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: fitness-journal-backend
+  template:
+    metadata:
+      labels:
+        app: fitness-journal-backend
+    spec:
+      containers:
+        - name: fitness-journal-backend
+          image: springboot-app:latest
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 8080
+          envFrom:
+            - secretRef:
+                name: fitness-journal-secrets
+          readinessProbe:
+            httpGet:
+              path: /actuator/health
+              port: 8080
+            initialDelaySeconds: 30
+            periodSeconds: 10
+          livenessProbe:
+            httpGet:
+              path: /actuator/health
+              port: 8080
+            initialDelaySeconds: 60
+            periodSeconds: 30
+          resources:
+            requests:
+              memory: "512Mi"
+              cpu: "250m"
+            limits:
+              memory: "1Gi"
+              cpu: "500m"
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: fitness-journal-backend
+  namespace: fitness-journal
+spec:
+  selector:
+    app: fitness-journal-backend
+  ports:
+    - port: 80
+      targetPort: 8080
+  type: LoadBalancer
