@@ -1,168 +1,84 @@
-# Fitness Journal
+# Fitness Journal – Full Stack Project
 
-A full-stack fitness tracking application inspired by StrengthLog. Log workouts, track exercises and sets, monitor personal records, and visualize your progress over time.
+## 🧾 Overview
 
-> 🚧 **In Progress** — core features are live; new features are still being added.
+Fitness Journal is a full-stack fitness tracking application inspired by StrengthLog, built with **Spring Boot** (backend) and **React + TypeScript** (frontend). Users can log workouts, record exercises and sets, and visualize their strength progress over time. The app is containerized with Docker and deployed to the cloud, with the frontend on Vercel and the backend and database on Railway.
 
-## Live Demo
+**Live demo:** <https://fitness-journal-frontend.vercel.app/>
 
-**Frontend:** <https://fitness-journal-frontend.vercel.app/>
+## 🎯 Features
 
-The frontend is hosted on Vercel and talks to a Spring Boot API hosted on Railway.
+- **Workout Logging**
+  - Create workouts and add exercises and sets.
+  - Edit sets inline without leaving the workout page.
+  - Paginated workout history.
+- **Exercise Library**
+  - Seeded exercise list grouped by muscle group.
+  - Searchable exercise selector.
+- **Progress Tracking**
+  - Dual-axis chart of max weight and total volume over time.
+  - Personal records displayed on the Progress page.
+- **Unit Conversion**
+  - Switch between kg and lbs; preference is saved in the browser.
+- **Authentication**
+  - Register and log in with JWT-based sessions.
+  - Protected routes redirect unauthenticated users to the login page.
 
----
+## 🛠️ Tech Stack
 
-## Repositories
+- **Frontend:** React, TypeScript, Vite, React Router, React Context, Axios, Recharts
+- **Backend:** Java 17, Spring Boot 3.4.5, Spring Security, JWT, Spring Data JPA, Maven
+- **Database:** PostgreSQL with Flyway migrations and UUID primary keys
+- **DevOps:** Docker (multi-stage build), Docker Compose, Kubernetes (Minikube)
 
-| Layer    | Repository                                                                      | Stack                                                   |
-| -------- | ------------------------------------------------------------------------------- | ------------------------------------------------------- |
-| Frontend | [fitness-journal-frontend](https://github.com/Vasqjr/fitness-journal-frontend) | React, TypeScript, Vite, Axios, Recharts                |
-| Backend  | [fitness-journal-backend](https://github.com/Vasqjr/fitness-journal-backend)   | Spring Boot, Spring Security, JWT, PostgreSQL, Flyway   |
+## 🏗️ Architecture
 
----
+- **Backend layers:** Controller → Service → Repository → Entity
+- **Entities:** `User`, `Workout`, `Exercise`, `WorkoutSet`, `MuscleGroup`
+- **Relationships:** A user has many workouts, and a workout has many sets. Each set references an exercise.
+- **Cross-cutting:** DTO records for all requests and responses, a shared `BaseController`, and a global `@RestControllerAdvice` exception handler.
+- **Health checks:** Spring Actuator at `/actuator/health`.
 
-## Architecture
+## ☁️ Deployment & Infrastructure
 
-```
-React Frontend (Vercel)
-Pages · Components · Auth Context · Axios (JWT interceptor)
-        |
-        | REST / JSON over HTTPS
-        ↓
-Spring Boot API (Railway)
-├── Controller Layer     (BaseController · Auth · Workout · Exercise · Set · Progress)
-├── Service Layer        (business logic)
-├── Repository Layer     (Spring Data JPA)
-├── Entity Layer         (User · Workout · Exercise · WorkoutSet · MuscleGroup)
-├── Security             (Spring Security · JWT filter chain · BCrypt)
-└── Cross-Cutting        (DTO records · @RestControllerAdvice exception handler · Actuator)
-        |
-        ↓
-PostgreSQL (Railway)
-└── Schema managed by Flyway migrations, seeded with exercises
-```
+- **Vercel**
+  - Hosts the React frontend and auto-deploys on every push.
+- **Railway**
+  - Hosts the Spring Boot API and a managed PostgreSQL service.
+  - Provides automatic HTTPS, which avoids mixed-content issues with the Vercel frontend.
+  - Configured through environment variables (`DB_URL`, `DB_USERNAME`, `DB_PASSWORD`, `JWT_SECRET`).
+- **Docker**
+  - Multi-stage Dockerfile for small production images.
+  - Docker Compose runs the API and PostgreSQL together for local development, with a database health check before the app starts.
+- **Kubernetes**
+  - Minikube manifests for a two-replica deployment, Postgres, and secrets.
+  - Readiness and liveness probes on `/actuator/health`.
+- **AWS (earlier deployment)**
+  - The backend was originally deployed with ECR, ECS Fargate, RDS, and SSM Parameter Store before moving to Railway.
 
-**Data model:** `User` → many `Workout` → many `WorkoutSet`. Each set references an `Exercise`, which belongs to a `MuscleGroup`. All entities use UUID primary keys.
+## 🔐 Security
 
----
+- JWT authentication with Spring Security and a custom filter chain.
+- Passwords hashed with BCrypt.
+- Protected API endpoints and protected frontend routes.
+- Axios interceptor attaches the token to requests and redirects to login on a 401.
+- Secrets and credentials stored in environment variables, never in source control.
 
-## Features
-
-- **Authentication** — Register and log in with JWT-based sessions and BCrypt-hashed passwords
-- **Workout Logging** — Create workouts and add exercises and sets, with inline set editing
-- **Exercise Library** — Browse a seeded exercise list grouped by muscle group, with search
-- **Progress Tracking** — Charts of max weight and total volume over time (dual-axis), plus personal records
-- **Unit Conversion** — Switch between kg and lbs; preference is saved in the browser
-- **Pagination** — Paginated workout listing
-- **Protected Routes** — Authenticated pages redirect to login; logged-in users skip the login screen
-- **Health Checks** — Spring Actuator endpoint at `/actuator/health`
-
----
-
-## Tech Stack
-
-### Frontend
-
-- React + TypeScript
-- Vite
-- React Router
-- React Context (auth state)
-- Axios (with JWT request interceptor and 401 handling)
-- Recharts (progress charts)
-
-### Backend
-
-- Java 17 + Spring Boot 3.4.5 (Maven)
-- Spring Security + JWT (jjwt)
-- Spring Data JPA + Hibernate
-- Flyway (database migrations)
-- PostgreSQL
-- Spring Actuator
-
-### Infrastructure & Deployment
-
-- **Vercel** — frontend hosting, auto-deploys on push
-- **Railway** — backend and PostgreSQL hosting, auto-deploys on push, provides HTTPS
-- **Docker** — multi-stage Dockerfile; Docker Compose for local development
-- **Kubernetes** — local Minikube manifests (2 app replicas, Postgres, secrets, readiness/liveness probes)
-- **AWS (earlier deployment)** — the backend was previously deployed with ECR, ECS Fargate, RDS, and SSM Parameter Store before moving to Railway
-
----
-
-## Local Development
-
-### Prerequisites
-
-- Docker + Docker Compose
-- Node.js 18+
-- Java 17+ (only if running the backend outside Docker)
-
-### Running Locally
+## 🚀 Getting Started
 
 ```bash
-# Clone both repositories
-git clone https://github.com/Vasqjr/fitness-journal-backend.git
-git clone https://github.com/Vasqjr/fitness-journal-frontend.git
+# Clone the repository
+git clone https://github.com/Vasqjr/fitness-journal.git
+cd fitness-journal
 
-# Start backend + database via Docker Compose
-cd fitness-journal-backend
+# Start the backend and database
+cd backend
 docker-compose up
 
-# Start frontend
-cd ../fitness-journal-frontend
+# In a second terminal, start the frontend
+cd frontend
 npm install
 npm run dev
 ```
 
-With Docker Compose, the API runs on `http://localhost:8080` and PostgreSQL is exposed on port `5433`.
-
-### Configuration
-
-**Backend environment variables**
-
-| Variable      | Description                  |
-| ------------- | ---------------------------- |
-| `DB_URL`      | JDBC connection URL          |
-| `DB_USERNAME` | Database username            |
-| `DB_PASSWORD` | Database password            |
-| `JWT_SECRET`  | Secret used to sign JWTs     |
-
-**Frontend environment variables**
-
-| Variable       | Description                                              |
-| -------------- | -------------------------------------------------------- |
-| `VITE_API_URL` | Base URL of the backend API (e.g. `http://localhost:8080`) |
-
----
-
-## Running on Kubernetes (Minikube)
-
-```bash
-# Build the image and load it into Minikube
-docker build -t springboot-app:latest .
-minikube image load springboot-app:latest
-
-# Apply manifests
-kubectl create namespace fitness-journal
-kubectl apply -f secret.yaml -f postgres.yaml -f deployment.yaml
-```
-
-The deployment runs two replicas with readiness and liveness probes on `/actuator/health`.
-
----
-
-## Roadmap
-
-- [x] Spring Boot project structure
-- [x] Database schema, JPA entities, and Flyway migrations
-- [x] JWT authentication
-- [x] Workout, exercise, and set CRUD endpoints
-- [x] React frontend — auth flow
-- [ ] React frontend — workout logging UI
-- [x] Progress visualization, charts, and personal records
-- [x] Dockerized backend with Docker Compose
-- [x] Production deployment (Vercel + Railway)
-- [x] Kubernetes manifests for local cluster
-- [x] CI pipeline (GitHub Actions)
-- [x] JWT refresh tokens
-- [x] Tighter CORS configuration for production domains
+The API runs on `http://localhost:8080` and PostgreSQL is exposed on port `5433`. Set `VITE_API_URL` in the frontend environment to point at the API.
