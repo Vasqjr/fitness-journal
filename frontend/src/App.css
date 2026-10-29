@@ -5,7 +5,6 @@
 
 #login-page-wrap,
 #register-page-wrap {
-  margin-left: min(25vw, 40rem);
   display: flex;
   align-items: center;
   width: 100%;
