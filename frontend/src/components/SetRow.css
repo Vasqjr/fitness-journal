@@ -1,0 +1,105 @@
+#set-row-editor-wrap {
+  padding: '10px 12px';
+  border-bottom: '1px solid #eee';
+  background-color: '#f9fafb';
+
+  .set-row-info {
+    font-size: 13;
+    font-weight: 500;
+    margin-bottom: 8;
+  }
+
+  .set-row-editor-items {
+    .set-row-editor-input {
+      padding: 0.25rem 0.5rem;
+      border-radius: 0.25rem;
+      border: 1px solid #ccc;
+
+      .set-row-editor-reps-input {
+        width: 70;
+      }
+
+      .set-row-editor-weight-input {
+        width: 100;
+      }
+
+      .set-row-editor-rpe-input {
+        width: 60;
+      }
+
+      .set-row-editor-notes-input {
+        width: 150;
+      }
+    }
+
+    .set-row-editor-button {
+      padding: 0.25rem 0.75rem;
+      border-radius: 0.25rem;
+      border: none;
+      cursor: pointer;
+
+      .set-row-editor-save-button {
+        background-color: var(--accent);
+        color: #fff;
+      }
+
+      .set-row-editor-cancel-button {
+        background-color: #e5e7eb;
+      }
+    }
+  }
+}
+
+#set-row-wrap {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5rem 0.75rem;
+  border-bottom: 1px solid #eee;
+  font-size: 0.875rem;
+
+  .set-row-info {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+
+    .set-row-exercise-name {
+      font-weight: 500;
+      min-width: 7.5rem;
+    }
+
+    .set-row-set-number {
+      color: #666;
+    }
+
+    .set-row-rpe {
+      color: #888;
+    }
+
+    .set-row-notes {
+      color: #888;
+      font-style: italic;
+    }
+  }
+
+  .set-row-utilities {
+    display: flex;
+    gap: 0.5rem;
+
+    .set-row-utility-edit {
+      background: none;
+      border: none;
+      cursor: pointer;
+      color: var(--accent);
+      font-size: 0.875rem;
+    }
+
+    .set-row-utility-delete {
+      background: none;
+      border: none;
+      color: #e53e3e;
+      cursor: pointer;
+      font-size: 1rem;
+    }
+  }
+}

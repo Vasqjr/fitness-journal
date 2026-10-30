@@ -1,5 +1,6 @@
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
 import type { ProgressPoint } from '../types';
+import './ProgressChart.css';
 
 interface Props {
   data: ProgressPoint[];

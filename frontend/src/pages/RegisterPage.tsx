@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import { register as registerApi } from '../api/authApi';
 import { useAuth } from '../context/AuthContext';
+import './LoginRegisterPages.css';
 
 export default function RegisterPage() {
   const [email, setEmail] = useState('');

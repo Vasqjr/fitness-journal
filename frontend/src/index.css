@@ -70,3 +70,8 @@ body {
   margin-left: auto;
   margin-right: auto;
 }
+
+.standard-button {
+  color: #13010a;
+  border-radius: 1rem;
+}

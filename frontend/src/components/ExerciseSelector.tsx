@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { getExercises } from '../api/exerciseApi';
 import type { Exercise } from '../types';
+import './ExerciseSelector.css';
 
 interface Props {
   value: string;

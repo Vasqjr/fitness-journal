@@ -2,6 +2,7 @@ import { useNavigate, useLocation } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
 import { useState } from 'react';
 import { useMetricPreference, setMetricPreference } from '../utils/units';
+import './Navbar.css';
 
 export default function Navbar() {
     const { logout, user } = useAuth();
@@ -23,7 +24,7 @@ export default function Navbar() {
     };
 
     return (
-        <nav id="navigation-wrap">
+        <nav id="navigation-wrapper">
             <div className="navigation-items">
                 <span
                     onClick={() => navigate('/workouts')}

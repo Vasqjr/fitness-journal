@@ -4,6 +4,7 @@ import { getProgress } from '../api/progressApi';
 import type { Exercise, ProgressPoint } from '../types';
 import ProgressChart from '../components/ProgressChart';
 import { useMetricPreference, displayWeight } from '../utils/units';
+import './ProgressPage.css';
 
 interface PersonalRecord {
   maxWeightKg: number;

@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { getExercises, createExercise, deleteExercise } from '../api/exerciseApi';
 import type { Exercise } from '../types';
+import './ExercisesPage.css';
 
 const MUSCLE_GROUPS = [
   'CHEST', 'BACK', 'SHOULDERS', 'BICEPS',

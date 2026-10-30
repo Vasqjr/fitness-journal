@@ -15,7 +15,7 @@ function ProtectedRoute({ children }: { children: React.ReactElement }) {
   return isAuthenticated ? (
     <>
       <Navbar />
-      <div style={{ backgroundColor: '#f9fafb', minHeight: 'calc(100vh - 56px)' }}>
+      <div className="app-content-wrap">
         {children}
       </div>
     </>

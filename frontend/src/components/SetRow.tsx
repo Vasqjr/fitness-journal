@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import type { WorkoutSet } from '../types';
 import { useMetricPreference, displayWeight, toKg } from '../utils/units';
+import './SetRow.css';
 
 interface Props {
     set: WorkoutSet;

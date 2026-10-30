@@ -5,6 +5,7 @@ import type { Workout } from '../types';
 import SetRow from '../components/SetRow';
 import ExerciseSelector from '../components/ExerciseSelector';
 import { useMetricPreference, toKg } from '../utils/units';
+import './WorkoutDetailPage.css';
 
 export default function WorkoutDetailPage() {
   const { id } = useParams<{ id: string }>();

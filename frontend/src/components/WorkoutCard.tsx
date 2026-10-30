@@ -1,4 +1,5 @@
 import type { Workout } from '../types';
+import './WorkoutCard.css';
 
 interface Props {
   workout: Workout;

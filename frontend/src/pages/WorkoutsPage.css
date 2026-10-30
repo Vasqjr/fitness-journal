@@ -1,0 +1,11 @@
+#workout-page-wrapper {
+  display: flex;
+  flex-direction: column;
+
+  .training-log-content {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+}
