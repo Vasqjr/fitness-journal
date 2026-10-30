@@ -4,7 +4,7 @@
 
 Fitness Journal is a full-stack fitness tracking application inspired by StrengthLog, built with **Spring Boot** (backend) and **React + TypeScript** (frontend). Users can log workouts, record exercises and sets, and visualize their strength progress over time. The app is containerized with Docker and deployed to the cloud, with the frontend on Vercel and the backend and database on Railway.
 
-**Live demo:** <https://fitness-journal-frontend.vercel.app/>
+**Live demo:** <https://fitness-journal-fullstack.vercel.app/>
 
 ## 🎯 Features
 
