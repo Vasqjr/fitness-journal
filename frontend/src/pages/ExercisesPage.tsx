@@ -114,17 +114,17 @@ export default function ExercisesPage() {
         </div>
       )}
 
-      <div className="" style={{ display: 'flex', gap: 8, marginBottom: 16 }}>
+      <div className="exercise-page-search-wrapper">
         <input
           placeholder="Search exercises..."
           value={filter}
           onChange={e => setFilter(e.target.value)}
-          style={{ flex: 1, padding: 8, borderRadius: 4, border: '1px solid #ccc' }}
+          className="exercise-page-search-input"
         />
         <select
           value={groupFilter}
           onChange={e => setGroupFilter(e.target.value)}
-          style={{ padding: 8, borderRadius: 4, border: '1px solid #ccc' }}
+          className="exercise-page-search-filter"
         >
           <option value="ALL">All Groups</option>
           {MUSCLE_GROUPS.map(g => (
@@ -134,37 +134,32 @@ export default function ExercisesPage() {
       </div>
 
       {Object.entries(grouped).map(([group, exs]) => (
-        <div key={group} style={{ marginBottom: 24 }}>
-          <h3 style={{ margin: '0 0 8px', color: '#6366f1', fontSize: 14, textTransform: 'uppercase', letterSpacing: 1 }}>
+        <div className="exercise-page-categories-wrapper" key={group}>
+          <h3 className="exercise-page-category-header">
             {group}
           </h3>
-          <div style={{ backgroundColor: '#fff', borderRadius: 8, border: '1px solid #e5e7eb', overflow: 'hidden' }}>
+          <div className="exercise-page-category-items">
             {exs.map((ex, i) => (
               <div
                 key={ex.id}
-                style={{
-                  display: 'flex',
-                  justifyContent: 'space-between',
-                  alignItems: 'center',
-                  padding: '12px 16px',
-                  borderBottom: i < exs.length - 1 ? '1px solid #f3f4f6' : 'none'
-                }}
+                className="exercise-page-category-item"
+                style={{ borderBottom: i < exs.length - 1 ? '1px solid #f3f4f6' : 'none' }}
               >
-                <div>
-                  <span style={{ fontWeight: 500, fontSize: 14 }}>{ex.name}</span>
+                <div className="exercise-page-category-item-content">
+                  <span className="exercise-page-category-item-name">{ex.name}</span>
                   {ex.isCustom && (
-                    <span style={{ marginLeft: 8, fontSize: 11, backgroundColor: '#e0e7ff', color: '#6366f1', padding: '2px 6px', borderRadius: 10 }}>
+                    <span className="exercise-page-category-item-custom-tag">
                       custom
                     </span>
                   )}
                   {ex.description && (
-                    <p style={{ margin: '2px 0 0', fontSize: 12, color: '#888' }}>{ex.description}</p>
+                    <p className="exercise-page-category-item-description">{ex.description}</p>
                   )}
                 </div>
                 {ex.isCustom && (
                   <button
                     onClick={() => handleDelete(ex.id)}
-                    style={{ background: 'none', border: 'none', color: '#e53e3e', cursor: 'pointer', fontSize: 16 }}
+                    className="exercise-page-category-item-delete-button"
                   >
                     ✕
                   </button>
