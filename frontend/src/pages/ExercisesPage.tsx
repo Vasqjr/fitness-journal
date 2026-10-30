@@ -58,40 +58,32 @@ export default function ExercisesPage() {
   }, {} as Record<string, Exercise[]>);
 
   return (
-    <div style={{ maxWidth: 700, margin: '0 auto', padding: 24 }}>
-      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 24 }}>
-        <h1 style={{ margin: 0 }}>Exercises</h1>
+    <div id="exercise-page-wrapper">
+      <div className="exercise-page-top">
+        <h1 className="exercise-page-header">Exercises</h1>
         <button
           onClick={() => setShowForm(!showForm)}
-          style={{
-            padding: '8px 16px',
-            backgroundColor: '#6366f1',
-            color: '#fff',
-            border: 'none',
-            borderRadius: 6,
-            cursor: 'pointer',
-            fontSize: 14
-          }}
+          className="exercise-page-custom-button"
         >
           + Custom Exercise
         </button>
       </div>
 
       {showForm && (
-        <div style={{ padding: 16, border: '1px solid #e5e7eb', borderRadius: 8, marginBottom: 24, backgroundColor: '#fff' }}>
-          <h3 style={{ margin: '0 0 16px' }}>New Custom Exercise</h3>
-          {error && <p style={{ color: 'red', margin: '0 0 8px' }}>{error}</p>}
-          <form onSubmit={handleCreate}>
+        <div className="exercise-page-form-wrapper">
+          <h3 className="exercise-page-new-exercise-header">New Custom Exercise</h3>
+          {error && <p className="exercise-page-form-error">{error}</p>}
+          <form className="exercise-page-form" onSubmit={handleCreate}>
             <input
               placeholder="Exercise name"
               value={name}
               onChange={e => setName(e.target.value)}
-              style={{ display: 'block', width: '100%', marginBottom: 8, padding: 8, boxSizing: 'border-box', borderRadius: 4, border: '1px solid #ccc' }}
+              className="exercise-name-input"
             />
             <select
               value={muscleGroup}
               onChange={e => setMuscleGroup(e.target.value)}
-              style={{ display: 'block', width: '100%', marginBottom: 8, padding: 8, borderRadius: 4, border: '1px solid #ccc' }}
+              className="exercise-muscle-group-select"
             >
               {MUSCLE_GROUPS.map(g => (
                 <option key={g} value={g}>{g}</option>
@@ -101,19 +93,19 @@ export default function ExercisesPage() {
               placeholder="Description (optional)"
               value={description}
               onChange={e => setDescription(e.target.value)}
-              style={{ display: 'block', width: '100%', marginBottom: 12, padding: 8, boxSizing: 'border-box', borderRadius: 4, border: '1px solid #ccc' }}
+              className="exercise-description-input"
             />
-            <div style={{ display: 'flex', gap: 8 }}>
+            <div className="exercise-form-utilities">
               <button
                 type="submit"
-                style={{ padding: '8px 16px', backgroundColor: '#6366f1', color: '#fff', border: 'none', borderRadius: 6, cursor: 'pointer' }}
+                className="exercise-form-utilities-create-button"
               >
                 Create
               </button>
               <button
                 type="button"
                 onClick={() => setShowForm(false)}
-                style={{ padding: '8px 16px', backgroundColor: '#e5e7eb', border: 'none', borderRadius: 6, cursor: 'pointer' }}
+                className="exercise-form-utilities-cancel-button"
               >
                 Cancel
               </button>
@@ -122,7 +114,7 @@ export default function ExercisesPage() {
         </div>
       )}
 
-      <div style={{ display: 'flex', gap: 8, marginBottom: 16 }}>
+      <div className="" style={{ display: 'flex', gap: 8, marginBottom: 16 }}>
         <input
           placeholder="Search exercises..."
           value={filter}
