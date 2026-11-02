@@ -71,12 +71,11 @@ Fitness Journal is a full-stack fitness tracking application inspired by Strengt
 git clone https://github.com/Vasqjr/fitness-journal.git
 cd fitness-journal
 
-# Start the backend and database
-cd backend
-docker-compose up
+# Start the backend and database (from the repo root)
+docker compose up --build
 
 # In a second terminal, start the frontend
-cd frontend
+cd fitness-journal/frontend
 npm install
 npm run dev
 ```
