@@ -28,11 +28,11 @@ export default function RegisterPage() {
   };
 
   return (
-    <div id="register-page-wrap">
-      <div className='register-card'>
+    <div id="auth-page-wrap">
+      <div className='auth-card'>
         <h1>Fitness Journal</h1>
-        {error && <p style={{ color: 'red' }}>{error}</p>}
-        <form onSubmit={handleSubmit} className='register-form'>
+        {error && <p className="auth-card-error">{error}</p>}
+        <form onSubmit={handleSubmit} className='auth-form'>
           <div>
             <h2>Display Name</h2>
             <input
@@ -40,7 +40,7 @@ export default function RegisterPage() {
               placeholder="Display Name"
               value={displayName}
               onChange={e => setDisplayName(e.target.value)}
-              className="register-field"
+              className="auth-field"
             /></div>
           <div><h2>Email</h2>
             <input
@@ -48,7 +48,7 @@ export default function RegisterPage() {
               placeholder="Email"
               value={email}
               onChange={e => setEmail(e.target.value)}
-              className="register-field"
+              className="auth-field"
             /></div>
           <div>
             <h2>Password</h2>
@@ -57,12 +57,12 @@ export default function RegisterPage() {
               placeholder="Password"
               value={password}
               onChange={e => setPassword(e.target.value)}
-              className="register-field"
+              className="auth-field"
             />
           </div>
-          <button type="submit" className='register-field standard-button'>Register</button>
+          <button type="submit" className='auth-field standard-button'>Register</button>
         </form>
-        <p className='register-info-field'>Already have an account? <Link to="/login" className='register-link'>Log in</Link></p>
+        <p className='auth-info-field'>Already have an account? <Link to="/login" className='auth-link'>Log in</Link></p>
       </div>
     </div>
   );

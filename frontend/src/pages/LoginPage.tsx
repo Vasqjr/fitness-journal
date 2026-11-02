@@ -27,11 +27,11 @@ export default function LoginPage() {
   };
 
   return (
-    <div id="login-page-wrap">
-      <div className="login-card">
-        <h1>Fitness Journal</h1>
-        {error && <p style={{ color: 'red' }}>{error}</p>}
-        <form onSubmit={handleSubmit}>
+    <div id="auth-page-wrap">
+      <div className="auth-card">
+        <h1 className="auth-card-header">Fitness Journal</h1>
+        {error && <p className="auth-card-error">{error}</p>}
+        <form className="auth-form" onSubmit={handleSubmit}>
           <div>
             <h2>Email</h2>
             <input
@@ -39,7 +39,7 @@ export default function LoginPage() {
               placeholder="Email"
               value={email}
               onChange={e => setEmail(e.target.value)}
-              className="login-field"
+              className="auth-field"
             />
           </div>
           <div>
@@ -49,12 +49,12 @@ export default function LoginPage() {
               placeholder="Password"
               value={password}
               onChange={e => setPassword(e.target.value)}
-              className="login-field"
+              className="auth-field"
             />
           </div>
-          <button type="submit" className='login-field login-button standard-button'>Log in</button>
+          <button type="submit" className='auth-field auth-button standard-button'>Log in</button>
         </form>
-        <p className='login-info-field'>Don't have an account? <Link to="/register" className='login-link'>Register</Link></p>
+        <p className='auth-info-field'>Don't have an account? <Link to="/register" className='auth-link'>Register</Link></p>
       </div>
 
     </div>
