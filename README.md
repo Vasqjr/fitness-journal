@@ -80,4 +80,5 @@ npm install
 npm run dev
 ```
 
-The API runs on `http://localhost:8080` and PostgreSQL is exposed on port `5433`. Set `VITE_API_URL` in the frontend environment to point at the API.
+The API runs at `http://localhost:8080` and PostgreSQL is exposed on port `5433`.
+Create `frontend/.env` with `VITE_API_URL=http://localhost:8080` before starting the frontend.
