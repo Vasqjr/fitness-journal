@@ -10,3 +10,11 @@ WORKDIR /app
 COPY --from=build /app/target/*.jar app.jar
 EXPOSE 8080
 ENTRYPOINT ["java", "-jar", "app.jar"]
+
+FROM eclipse-temurin:17-jre-jammy
+WORKDIR /app
+RUN useradd --system --uid 1001 spring
+USER spring
+COPY --from=build /app/target/*.jar app.jar
+EXPOSE 8080
+ENTRYPOINT ["java", "-jar", "app.jar"]
