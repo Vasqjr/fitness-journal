@@ -32,28 +32,30 @@ export default function WorkoutsPage() {
   return (
     <div id="workout-page-wrapper">
       <div className="training-log-content">
-        <h1>Training Log</h1>
-        <button className="standard-button" onClick={() => setShowForm(!showForm)}>
+        <h1 className="training-log-header">Training Log</h1>
+        <button className="training-log-new-workout-button standard-button" onClick={() => setShowForm(!showForm)}>
           + New Workout
         </button>
         {showForm && (
-          <form onSubmit={handleCreate}>
+          <form className="create-workout-form" onSubmit={handleCreate}>
             <input
               placeholder="Workout name"
               value={name}
               onChange={e => setName(e.target.value)}
+              className="create-workout-name-input"
             />
             <input
               type="date"
               value={date}
               onChange={e => setDate(e.target.value)}
+              className="create-workout-date-input"
             />
-            <button type="submit">Create</button>
+            <button className="create-workout-submit" type="submit">Create</button>
           </form>
         )}
 
         {workouts.length === 0 ? (
-          <p>No workouts yet. Create your first one!</p>
+          <p className="no-workout-notice">No workouts yet. Create your first one!</p>
         ) : (
           workouts.map(workout => (
             <WorkoutCard

@@ -63,17 +63,17 @@ export default function WorkoutDetailPage() {
   if (!workout) return <p>Loading...</p>;
 
   return (
-    <div>
-      <button onClick={() => navigate('/workouts')}>← Back</button>
-      <div>
-        <h1>{workout.name}</h1>
-        <button onClick={handleDeleteWorkout} style={{ color: 'red' }}>Delete Workout</button>
+    <div id="workout-details-page-wrapper">
+      <button className="workout-details-back-button standard-button" onClick={() => navigate('/workouts')}>← Back</button>
+      <div className="workout-details-wrap">
+        <h1 className="workout-details-header">{workout.name}</h1>
+        <button className="workout-details-delete-button standard-button" onClick={handleDeleteWorkout}>Delete Workout</button>
       </div>
-      <p>{workout.date}</p>
+      <p className="workout-details-date">{workout.date}</p>
 
-      <h2>Sets</h2>
+      <h2 className="workout-sets-header">Sets</h2>
       {workout.sets.length === 0 ? (
-        <p>No sets yet.</p>
+        <p className="workout-no-sets">No sets yet.</p>
       ) : (
         workout.sets.map(set => (
           <SetRow
@@ -85,8 +85,8 @@ export default function WorkoutDetailPage() {
         ))
       )}
 
-      <h2>Add Set</h2>
-      <form onSubmit={handleAddSet}>
+      <h2 className="workout-add-sets-header">Add Set</h2>
+      <form className="workout-add-sets-form" onSubmit={handleAddSet}>
         <ExerciseSelector
           value={exerciseId}
           onChange={setExerciseId}
@@ -96,13 +96,15 @@ export default function WorkoutDetailPage() {
           placeholder="Reps"
           value={reps}
           onChange={e => setReps(e.target.value)}
+          className="workout-sets-reps-input"
         />
         <input
           placeholder="Weight (kg)"
           value={weightKg}
           onChange={e => setWeightKg(e.target.value)}
+          className="workout-sets-weight-input"
         />
-        <button type="submit">Add Set</button>
+        <button className="workout-details-submit-button standard-button" type="submit">Add Set</button>
       </form>
     </div>
   );
