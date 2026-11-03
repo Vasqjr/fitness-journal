@@ -32,8 +32,8 @@ export default function LoginPage() {
         <h1 className="auth-card-header">Fitness Journal</h1>
         {error && <p className="auth-card-error">{error}</p>}
         <form className="auth-form" onSubmit={handleSubmit}>
-          <div>
-            <h2>Email</h2>
+          <div className="auth-email-wrap">
+            <h2 className="auth-email-header">Email</h2>
             <input
               type="email"
               placeholder="Email"
@@ -42,8 +42,8 @@ export default function LoginPage() {
               className="auth-field"
             />
           </div>
-          <div>
-            <h2>Password</h2>
+          <div className="auth-password-wrap">
+            <h2 className="auth-password-header">Password</h2>
             <input
               type="password"
               placeholder="Password"

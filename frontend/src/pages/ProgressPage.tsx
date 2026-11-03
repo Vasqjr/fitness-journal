@@ -48,79 +48,61 @@ export default function ProgressPage() {
   }, [selectedId]);
 
   return (
-    <div style={{ maxWidth: 700, margin: '0 auto', padding: 24 }}>
-      <h1 style={{ marginBottom: 24 }}>Progress</h1>
+    <div id="progress-page-wrap">
+      <h1 className="progress-page-header">Progress</h1>
 
       <select
         value={selectedId}
         onChange={e => setSelectedId(e.target.value)}
-        style={{ marginBottom: 24, padding: 8, borderRadius: 4, border: '1px solid #ccc', width: '100%' }}
+        className="progress-page-exercise-select"
       >
         {exercises.map(ex => (
-          <option key={ex.id} value={ex.id}>{ex.name}</option>
+          <option className="progress-page-exercise-option" key={ex.id} value={ex.id}>{ex.name}</option>
         ))}
       </select>
 
       {pr && (
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 16, marginBottom: 24 }}>
-          <div style={{
-            padding: 16,
-            backgroundColor: '#fff',
-            borderRadius: 8,
-            border: '1px solid #e5e7eb',
-            textAlign: 'center'
-          }}>
-            <div style={{ fontSize: 12, color: '#888', marginBottom: 4, textTransform: 'uppercase', letterSpacing: 1 }}>
+        <div className="progress-page-stats-wrap">
+          <div className="progress-page-statistic">
+            <div className="progress-stat-title">
               Personal Record
             </div>
-            <div style={{ fontSize: 24, fontWeight: 700, color: '#6366f1' }}>
+            <div className="personal-record-info max-weight">
               {displayWeight(pr.maxWeightKg, useMetric)}
             </div>
-            <div style={{ fontSize: 12, color: '#888', marginTop: 4 }}>
+            <div className="progress-date">
               {pr.date}
             </div>
           </div>
 
-          <div style={{
-            padding: 16,
-            backgroundColor: '#fff',
-            borderRadius: 8,
-            border: '1px solid #e5e7eb',
-            textAlign: 'center'
-          }}>
-            <div style={{ fontSize: 12, color: '#888', marginBottom: 4, textTransform: 'uppercase', letterSpacing: 1 }}>
+          <div className="progress-page-statistic">
+            <div className="progress-stat-title">
               Best Volume Day
             </div>
-            <div style={{ fontSize: 24, fontWeight: 700, color: '#10b981' }}>
+            <div className="personal-record-info total-volume" style={{ fontSize: 24, fontWeight: 700, color: '' }}>
               {pr.totalVolume.toLocaleString()}
             </div>
-            <div style={{ fontSize: 12, color: '#888', marginTop: 4 }}>
+            <div className="progress-date">
               {useMetric ? 'kg total' : 'lbs total'}
             </div>
           </div>
 
-          <div style={{
-            padding: 16,
-            backgroundColor: '#fff',
-            borderRadius: 8,
-            border: '1px solid #e5e7eb',
-            textAlign: 'center'
-          }}>
-            <div style={{ fontSize: 12, color: '#888', marginBottom: 4, textTransform: 'uppercase', letterSpacing: 1 }}>
+          <div className="progress-page-statistic">
+            <div className="progress-stat-title">
               Sessions Logged
             </div>
-            <div style={{ fontSize: 24, fontWeight: 700, color: '#f59e0b' }}>
+            <div className="personal-record-info sessions-logged">
               {data.length}
             </div>
-            <div style={{ fontSize: 12, color: '#888', marginTop: 4 }}>
+            <div className="progress-date">
               total sessions
             </div>
           </div>
         </div>
       )}
 
-      <div style={{ backgroundColor: '#fff', borderRadius: 8, border: '1px solid #e5e7eb', padding: 16 }}>
-        <h3 style={{ margin: '0 0 16px', fontSize: 14, color: '#555' }}>Max Weight Over Time</h3>
+      <div className="progress-chart-display-wrap">
+        <h3 className="progress-chart-display-header">Max Weight Over Time</h3>
         <ProgressChart data={data} useMetric={useMetric} />
       </div>
     </div>

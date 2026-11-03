@@ -3,22 +3,27 @@
     align-items: center;
     width: 100%;
     height: 100%;
+    justify-content: center;
+    min-height: 100dvh;
+    padding: 1rem;
 
     .auth-card {
-        background-color: #ffffff;
-        padding: 1rem;
-        border-radius: 2rem;
-        height: 60vh;
+        background-color: #fff;
+        padding: 1.5rem;
+        border-radius: 0.5rem;
+        height: auto;
         display: flex;
         flex-direction: column;
         justify-content: space-evenly;
+        width: 100%;
+        max-width: 25rem;
 
         .auth-card-error {
             color: red;
         }
 
         .auth-field {
-            width: 25rem;
+            width: 100%;
             height: 3rem;
             border-radius: 0.75rem;
             padding-left: 0.5rem;
@@ -27,15 +32,24 @@
             border-style: none;
             background-color: var(--bg);
         }
+
+        .auth-info-field {
+            font-size: 1.25rem;
+
+            .auth-link {
+                color: var(--accent);
+                text-decoration: none;
+                cursor: pointer;
+            }
+        }
     }
 
-    .auth-link {
-        color: var(--accent);
-        text-decoration: none;
-        cursor: pointer;
-    }
+    @media screen and (min-width: 768px) {
+        justify-content: flex-start;
+        padding-left: 25%;
 
-    .auth-info-field {
-        font-size: 1.25rem;
+        .auth-card {
+            padding: 2rem;
+        }
     }
 }

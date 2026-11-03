@@ -29,12 +29,12 @@ export default function RegisterPage() {
 
   return (
     <div id="auth-page-wrap">
-      <div className='auth-card'>
-        <h1>Fitness Journal</h1>
+      <div className="auth-card">
+        <h1 className="auth-card-header">Fitness Journal</h1>
         {error && <p className="auth-card-error">{error}</p>}
-        <form onSubmit={handleSubmit} className='auth-form'>
-          <div>
-            <h2>Display Name</h2>
+        <form onSubmit={handleSubmit} className="auth-form">
+          <div className="auth-display-name-wrap">
+            <h2 className="auth-display-name-header">Display Name</h2>
             <input
               type="text"
               placeholder="Display Name"
@@ -42,7 +42,7 @@ export default function RegisterPage() {
               onChange={e => setDisplayName(e.target.value)}
               className="auth-field"
             /></div>
-          <div><h2>Email</h2>
+          <div className="auth-email-wrap"><h2 className="auth-email-header">Email</h2>
             <input
               type="email"
               placeholder="Email"
@@ -50,8 +50,8 @@ export default function RegisterPage() {
               onChange={e => setEmail(e.target.value)}
               className="auth-field"
             /></div>
-          <div>
-            <h2>Password</h2>
+          <div className="auth-password-wrap">
+            <h2 className="auth-password-header">Password</h2>
             <input
               type="password"
               placeholder="Password"
@@ -60,7 +60,7 @@ export default function RegisterPage() {
               className="auth-field"
             />
           </div>
-          <button type="submit" className='auth-field standard-button'>Register</button>
+          <button type="submit" className='auth-field auth-button standard-button'>Register</button>
         </form>
         <p className='auth-info-field'>Already have an account? <Link to="/login" className='auth-link'>Log in</Link></p>
       </div>

@@ -3,6 +3,7 @@
   justify-content: space-between;
   align-items: center;
   padding: 0 1.5rem;
+  padding-inline: max(2rem, calc((100% - 87.5rem) / 2));
   height: 3.5rem;
   background-color: #fff;
   border-bottom: 1px solid #e5e7eb;
@@ -10,6 +11,7 @@
   position: sticky;
   top: 0;
   z-index: 100;
+  width: 100%;
 
   .navigation-items {
     display: flex;
