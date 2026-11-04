@@ -13,21 +13,31 @@
     }
 
     .create-workout-form {
-      width: 90%;
+      width: 100%;
       display: flex;
-      gap: 1rem;
+      flex-wrap: wrap;
+      gap: 0.5rem 1rem;
       margin-bottom: 0.5rem;
 
       .create-workout-name-input,
       .create-workout-date-input {
+        min-width: 0;
         padding: 0.5rem;
         font-size: 1rem;
-        flex: 1;
         border-radius: 0.25rem;
         border: 1px solid #ccc;
       }
 
+      .create-workout-name-input {
+        flex: 1 1 12rem;
+      }
+
+      .create-workout-date-input {
+        flex: 1 1 9rem;
+      }
+
       .create-workout-submit {
+        flex: 0 0 auto;
         padding: 0.375rem 0.875rem;
         border-radius: 0.375rem;
         border: 1px solid #e5e7eb;
