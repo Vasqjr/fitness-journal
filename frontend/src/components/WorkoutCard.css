@@ -9,11 +9,13 @@
   align-items: center;
   background-color: #fff;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  width: 80%;
 
   .workout-card {
+    margin: 0 auto;
     .workout-card-header {
       margin: 0;
-      font-size: 1rem;
+      font-size: 1.25rem;
     }
 
     .workout-card-info {

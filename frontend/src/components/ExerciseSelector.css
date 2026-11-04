@@ -1,10 +1,22 @@
 #exercise-selector-wrap {
   margin-bottom: 0.5rem;
 
+
   .exercise-search-input {
     display: block;
     width: 100%;
     margin-bottom: 0.25rem;
+    flex: 1;
     padding: 0.5rem;
+    border-radius: 0.25rem;
+    border: 1px solid #ccc;
+  }
+
+  .search-exercises-list {
+    margin-bottom: 1.5rem;
+    padding: 0.5rem;
+    border-radius: 0.25rem;
+    border: 1px solid #ccc;
+    width: 100%;
   }
 }

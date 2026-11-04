@@ -1,3 +1,7 @@
 .app-content-wrapper {
   min-height: calc(100vh - 3.5rem);
+  max-width: 43.75rem;
+  margin: 0 auto;
+  padding: 1.5rem;
+  background-color: var(--bg);
 }

@@ -10,25 +10,29 @@
   }
 
   .set-row-editor-items {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+
     .set-row-editor-input {
       padding: 0.25rem 0.5rem;
       border-radius: 0.25rem;
       border: 1px solid #ccc;
 
       .set-row-editor-reps-input {
-        width: 70;
+        width: 4.375rem;
       }
 
       .set-row-editor-weight-input {
-        width: 100;
+        width: 6.25rem;
       }
 
       .set-row-editor-rpe-input {
-        width: 60;
+        width: 3.75rem;
       }
 
       .set-row-editor-notes-input {
-        width: 150;
+        width: 9.375rem;
       }
     }
 

@@ -9,7 +9,7 @@
 :root {
   --text: #6b6375;
   --text-h: #08060d;
-  --bg: #edeff3;
+  --bg: #e1e1e1;
   --border: #e5e4e7;
   --code-bg: #f4f3ec;
   --accent: #a863f1;
@@ -69,6 +69,13 @@ body {
 }
 
 .standard-button {
-  color: #13010a;
-  border-radius: 1rem;
+  width: 60%;
+  height: 3rem;
+  border-radius: 0.75rem;
+  padding-left: 0.5rem;
+  margin: 0.5rem;
+  font-size: 1.2rem;
+  border-style: none;
+  background-color: #fff;
+  border: 1px solid #fff;
 }
