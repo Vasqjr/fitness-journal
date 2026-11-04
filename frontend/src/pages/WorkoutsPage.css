@@ -9,7 +9,7 @@
     align-items: center;
 
     .training-log-new-workout-button {
-      background-color: unset;
+      background-color: var(--bg);
     }
 
     .create-workout-form {

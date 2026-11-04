@@ -1,5 +1,75 @@
 #workout-details-page-wrapper {
-    .workout-details-delete-button {
-        color: red;
+    .workout-details-back-button {
+        background-color: var(--bg);
+    }
+
+    .workout-details-summary {
+        margin: 0.25rem 0 1rem;
+        color: #666;
+        font-size: 0.9rem;
+    }
+
+    .workout-details-error {
+        margin: 0.5rem 0;
+        color: #d93025;
+    }
+
+    .workout-set-group {
+        margin-bottom: 1.25rem;
+
+        .workout-set-group-header {
+            margin: 0 0 0.25rem;
+            font-size: 1.05rem;
+        }
+
+        .workout-set-group-add {
+            margin-top: 0.25rem;
+            padding: 0.25rem 0;
+            background: none;
+            border: none;
+            color: rgb(172, 99, 241);
+            font-size: 0.9rem;
+            cursor: pointer;
+
+            &:hover {
+                text-decoration: underline;
+            }
+        }
+    }
+
+    .workout-add-sets-form {
+        .workout-add-sets-fields {
+            display: flex;
+            gap: 0.75rem;
+            margin: 0.75rem 0;
+        }
+
+        .workout-add-sets-field {
+            display: flex;
+            flex-direction: column;
+            gap: 0.25rem;
+            flex: 1;
+            font-size: 0.85rem;
+            color: #555;
+
+            input {
+                padding: 0.5rem;
+                font-size: 1rem;
+                flex: 1;
+                border-radius: 0.25rem;
+                border: 1px solid #ccc;
+            }
+        }
+
+        button:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+    }
+
+    .workout-details-danger-zone {
+        margin-top: 3rem;
+        padding-top: 1rem;
+        border-top: 1px solid #ddd;
     }
 }

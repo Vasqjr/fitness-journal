@@ -76,6 +76,6 @@ body {
   margin: 0.5rem;
   font-size: 1.2rem;
   border-style: none;
-  background-color: #fff;
+  background-color: var(--bg);
   border: 1px solid #fff;
 }
