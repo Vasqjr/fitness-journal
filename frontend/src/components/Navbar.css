@@ -4,7 +4,6 @@
   align-items: center;
   padding: 0 1.5rem;
   padding-inline: max(2rem, calc((100% - 87.5rem) / 2));
-  height: 3.5rem;
   background-color: #fff;
   border-bottom: 1px solid #e5e7eb;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
@@ -12,6 +11,7 @@
   top: 0;
   z-index: 100;
   width: 100%;
+  min-height: 3.5rem;
 
   .navigation-items {
     display: flex;
@@ -34,6 +34,9 @@
         padding: 1rem 0;
         font-size: 0.875rem;
         font-weight: 500;
+        white-space: nowrap;
+        border-bottom: 2px solid transparent;
+        color: #555;
       }
     }
   }
@@ -56,6 +59,37 @@
       cursor: pointer;
       font-size: 0.875rem;
       color: #555;
+    }
+  }
+
+  @media (max-width: 640px) {
+    flex-wrap: wrap;
+    row-gap: 0.25rem;
+    padding: 0.5rem 1rem;
+
+    .navigation-items {
+      display: contents;
+    }
+
+    .navigation-icon {
+      order: 1;
+    }
+
+    .navigation-utilities {
+      order: 2;
+      margin-left: auto;
+      gap: 0.5rem;
+    }
+
+    .navigation-elements {
+      order: 3;
+      display: flex;
+      gap: 1.25rem;
+      width: 100%;
+    }
+
+    .nav-display-name {
+      display: none;
     }
   }
 }
