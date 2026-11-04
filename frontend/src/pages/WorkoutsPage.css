@@ -11,5 +11,32 @@
     .training-log-new-workout-button {
       background-color: unset;
     }
+
+    .create-workout-form {
+      width: 90%;
+      display: flex;
+      gap: 1rem;
+      margin-bottom: 0.5rem;
+
+      .create-workout-name-input,
+      .create-workout-date-input {
+        padding: 0.5rem;
+        font-size: 1rem;
+        flex: 1;
+        border-radius: 0.25rem;
+        border: 1px solid #ccc;
+      }
+
+      .create-workout-submit {
+        padding: 0.375rem 0.875rem;
+        border-radius: 0.375rem;
+        border: 1px solid #e5e7eb;
+        background: #fff;
+        cursor: pointer;
+        font-size: 0.875rem;
+        color: #555;
+      }
+    }
+
   }
 }
