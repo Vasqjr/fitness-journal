@@ -60,6 +60,13 @@ export default function Navbar() {
                     >
                         Exercises
                     </span>
+                    <span
+                        onClick={() => navigate('/steps')}
+                        style={{ ...isActive('/steps') }}
+                        className='nav-element'
+                    >
+                        Steps
+                    </span>
                 </div>
             </div>
             <div className="navigation-utilities">

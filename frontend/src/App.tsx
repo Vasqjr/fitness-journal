@@ -42,6 +42,9 @@ export default function App() {
           <Route path="/exercises" element={
             <ProtectedRoute><ExercisesPage /></ProtectedRoute>
           } />
+          <Route path="/steps" element={
+            <ProtectedRoute><StepsPage /></ProtectedRoute>
+          } />
           <Route path="*" element={<Navigate to="/" replace />} />
         </Routes>
       </BrowserRouter>

@@ -54,3 +54,10 @@ export interface ProgressPoint {
   totalVolume: number;
   totalSets: number;
 }
+
+export interface StepEntry {
+  id: string;
+  date: string;
+  steps: number;
+}
+
