@@ -19,9 +19,11 @@ Fitness Journal is a full-stack fitness tracking application inspired by Strengt
 - **Exercise Library**
   - Seeded exercise list grouped by muscle group.
   - Searchable exercise selector.
+  - Step count tracker
 - **Progress Tracking**
   - Dual-axis chart of max weight and total volume over time.
   - Personal records displayed on the Progress page.
+  - Daily progress and weekly average on steps walked.
 - **Unit Conversion**
   - Switch between kg and lbs; preference is saved in the browser.
 - **Authentication**
