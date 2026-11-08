@@ -6,6 +6,10 @@ Fitness Journal is a full-stack fitness tracking application inspired by Strengt
 
 **Live demo:** <https://fitness-journal-fullstack.vercel.app/>
 
+**Demo account:**
+- Email: demo@email.com
+- Password: password123
+
 ## 🎯 Features
 
 - **Workout Logging**
