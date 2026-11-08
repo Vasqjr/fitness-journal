@@ -15,11 +15,11 @@ api.interceptors.request.use((config) => {
 
 // If we get a 401, the token expired — log the user out
 api.interceptors.response.use(
-  (response) => response,
-  (error) => {
+  response => response,
+  error => {
     if (error.response?.status === 401) {
       localStorage.removeItem('token');
-      localStorage.removeItem('user');
+      localStorage.removeItem('user');   // whatever your AuthContext stores
       window.location.href = '/login';
     }
     return Promise.reject(error);
