@@ -8,6 +8,7 @@ import WorkoutDetailPage from './pages/WorkoutDetailPage';
 import ProgressPage from './pages/ProgressPage';
 import ExercisesPage from './pages/ExercisesPage';
 import Navbar from './components/Navbar';
+import StepsPage from './pages/StepsPage'
 import './App.css';
 
 function ProtectedRoute({ children }: { children: React.ReactElement }) {
