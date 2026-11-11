@@ -22,7 +22,10 @@
             color: red;
         }
 
-        .auth-card-header,
+        .auth-card-header {
+            color: #08060d;
+        }
+
         .auth-display-name-header,
         .auth-email-header,
         .auth-password-header {
@@ -51,7 +54,7 @@
 
         .auth-info-field {
             font-size: 1.25rem;
-            color: #08060d;
+            color: #323036;
 
             .auth-link {
                 color: var(--accent) !important;
