@@ -7,6 +7,6 @@ import java.time.LocalDate;
 public record ProgressPointResponse(
         LocalDate date,
         BigDecimal maxWeightKg,     // heaviest set that day
-        Integer totalVolume,        // total reps x weight for the day
+        BigDecimal totalVolume,     // total reps x weight for the day
         Integer totalSets
 ) {}

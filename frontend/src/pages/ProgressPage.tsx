@@ -3,7 +3,7 @@ import { getExercises } from '../api/exerciseApi';
 import { getProgress } from '../api/progressApi';
 import type { Exercise, ProgressPoint } from '../types';
 import ProgressChart from '../components/ProgressChart';
-import { useMetricPreference, displayWeight } from '../utils/units';
+import { useMetricPreference, displayWeight, convertKgForDisplay } from '../utils/units';
 import './ProgressPage.css';
 
 interface PersonalRecord {
@@ -80,7 +80,7 @@ export default function ProgressPage() {
               Best Volume Day
             </div>
             <div className="personal-record-info total-volume" style={{ fontSize: 24, fontWeight: 700, color: '' }}>
-              {pr.totalVolume.toLocaleString()}
+              {convertKgForDisplay(pr.totalVolume, useMetric).toLocaleString()}
             </div>
             <div className="progress-date">
               {useMetric ? 'kg total' : 'lbs total'}

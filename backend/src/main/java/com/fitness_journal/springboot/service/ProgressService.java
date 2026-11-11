@@ -40,10 +40,10 @@ public class ProgressService {
                     .max(BigDecimal::compareTo)
                     .orElse(BigDecimal.ZERO);
 
-            int totalVolume = daySets.stream()
+            BigDecimal totalVolume = daySets.stream()
                     .filter(s -> s.getReps() != null && s.getWeightKg() != null)
-                    .mapToInt(s -> s.getReps() * s.getWeightKg().intValue())
-                    .sum();
+                    .map(s -> s.getWeightKg().multiply(BigDecimal.valueOf(s.getReps())))
+                    .reduce(BigDecimal.ZERO, BigDecimal::add);
 
             result.add(new ProgressPointResponse(date, maxWeight, totalVolume, daySets.size()));
         }

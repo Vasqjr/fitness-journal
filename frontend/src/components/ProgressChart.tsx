@@ -1,5 +1,6 @@
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
 import type { ProgressPoint } from '../types';
+import { convertKgForDisplay } from '../utils/units';
 import './ProgressChart.css';
 
 interface Props {
@@ -16,10 +17,17 @@ export default function ProgressChart({ data, useMetric }: Props) {
     );
   }
 
+  const unit = useMetric ? 'kg' : 'lbs';
+  const chartData = data.map(point => ({
+    date: point.date,
+    maxWeight: convertKgForDisplay(point.maxWeightKg, useMetric),
+    totalVolume: convertKgForDisplay(point.totalVolume, useMetric),
+  }));
+
   return (
     <div id="progress-chart-wrap">
       <ResponsiveContainer width="100%" height="100%">
-        <LineChart className="progress-chart" data={data}>
+        <LineChart className="progress-chart" data={chartData}>
           <CartesianGrid />
           <XAxis dataKey="date" />
           <YAxis yAxisId="left" />
@@ -30,9 +38,9 @@ export default function ProgressChart({ data, useMetric }: Props) {
             className="line-weight"
             yAxisId="left"
             type="monotone"
-            dataKey="maxWeightKg"
+            dataKey="maxWeight"
             stroke="#ab5cff"
-            name={useMetric ? "Max Weight (kg)" : "Max Weight (lbs)"}
+            name={`Max Weight (${unit})`}
             dot={{ r: 4 }}
             activeDot={{ r: 6 }}
           />
@@ -42,7 +50,7 @@ export default function ProgressChart({ data, useMetric }: Props) {
             type="monotone"
             dataKey="totalVolume"
             stroke="#ab5cff"
-            name="Total Volume"
+            name={`Total Volume (${unit})`}
             dot={{ r: 4 }}
             activeDot={{ r: 6 }}
           />

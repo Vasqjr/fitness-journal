@@ -12,10 +12,12 @@ export const kgToLbs = (kg: number): number =>
 export const lbsToKg = (lbs: number): number =>
   Math.round(lbs / 2.20462 * 100) / 100;
 
+export const convertKgForDisplay = (kg: number, useMetric: boolean): number =>
+  useMetric ? kg : kgToLbs(kg);
+
 export const displayWeight = (kg: number | null, useMetric: boolean): string => {
   if (kg === null) return '';
-  if (useMetric) return `${kg} kg`;
-  return `${kgToLbs(kg)} lbs`;
+  return `${convertKgForDisplay(kg, useMetric)} ${useMetric ? 'kg' : 'lbs'}`;
 };
 
 export const toKg = (value: number, useMetric: boolean): number =>

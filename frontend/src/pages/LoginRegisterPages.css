@@ -22,6 +22,21 @@
             color: red;
         }
 
+        .auth-display-name-header,
+        .auth-email-header,
+        .auth-password-header {
+            display: block;
+            margin: 0.75rem 0.5rem 0.25rem;
+            color: var(--text-h);
+            font-size: 1rem;
+            font-weight: 600;
+        }
+
+        .auth-field-hint {
+            margin: 0 0.5rem;
+            font-size: 0.875rem;
+        }
+
         .auth-field {
             width: 100%;
             height: 3rem;
