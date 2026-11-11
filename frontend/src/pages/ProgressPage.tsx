@@ -52,6 +52,7 @@ export default function ProgressPage() {
       <h1 className="progress-page-header">Progress</h1>
 
       <select
+        aria-label="Choose an exercise for progress"
         value={selectedId}
         onChange={e => setSelectedId(e.target.value)}
         className="progress-page-exercise-select"

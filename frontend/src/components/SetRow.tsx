@@ -51,6 +51,7 @@ export default function SetRow({ set, showExerciseName = true, onDelete, onUpdat
                 </div>
                 <div className="set-row-editor-items">
                     <input
+                        aria-label={`Reps for ${set.exerciseName}, set ${set.setNumber}`}
                         placeholder="Reps"
                         inputMode="numeric"
                         value={reps}
@@ -58,6 +59,7 @@ export default function SetRow({ set, showExerciseName = true, onDelete, onUpdat
                         className="set-row-editor-reps-input"
                     />
                     <input
+                        aria-label={`Weight for ${set.exerciseName}, set ${set.setNumber} (${useMetric ? 'kg' : 'lbs'})`}
                         placeholder={useMetric ? 'Weight (kg)' : 'Weight (lbs)'}
                         inputMode="decimal"
                         value={weight}
@@ -65,6 +67,7 @@ export default function SetRow({ set, showExerciseName = true, onDelete, onUpdat
                         className="set-row-editor-weight-input"
                     />
                     <input
+                        aria-label={`RPE for ${set.exerciseName}, set ${set.setNumber}`}
                         placeholder="RPE"
                         inputMode="decimal"
                         value={rpe}
@@ -72,6 +75,7 @@ export default function SetRow({ set, showExerciseName = true, onDelete, onUpdat
                         className="set-row-editor-rpe-input"
                     />
                     <input
+                        aria-label={`Notes for ${set.exerciseName}, set ${set.setNumber}`}
                         placeholder="Notes"
                         value={notes}
                         onChange={e => setNotes(e.target.value)}
@@ -101,10 +105,18 @@ export default function SetRow({ set, showExerciseName = true, onDelete, onUpdat
                 {set.notes && <span className="set-row-notes">{set.notes}</span>}
             </div>
             <div className="set-row-utilities">
-                <button onClick={startEditing} className="set-row-utility-edit">
+                <button
+                    aria-label={`Edit ${set.exerciseName}, set ${set.setNumber}`}
+                    onClick={startEditing}
+                    className="set-row-utility-edit"
+                >
                     Edit
                 </button>
-                <button onClick={onDelete} className="set-row-utility-delete">
+                <button
+                    aria-label={`Delete ${set.exerciseName}, set ${set.setNumber}`}
+                    onClick={onDelete}
+                    className="set-row-utility-delete"
+                >
                     ✕
                 </button>
             </div>

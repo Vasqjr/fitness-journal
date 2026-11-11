@@ -22,7 +22,11 @@ export default function StepsChart({ data, goal }: Props) {
   }
 
   return (
-    <div id="steps-chart-wrap">
+    <div
+      id="steps-chart-wrap"
+      role="img"
+      aria-label={`Bar chart of daily steps for the selected range. Daily goal: ${goal.toLocaleString()} steps.`}
+    >
       <ResponsiveContainer width="100%" height="100%">
         <BarChart className="steps-chart" data={data}>
           <CartesianGrid vertical={false} />

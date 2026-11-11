@@ -35,12 +35,14 @@ export default function ExerciseSelector({ value, onChange }: Props) {
   return (
     <div id="exercise-selector-wrap">
       <input
+        aria-label="Search exercises"
         placeholder="Search exercises..."
         value={filter}
         onChange={e => setFilter(e.target.value)}
         className="exercise-search-input"
       />
       <select
+        aria-label="Select exercise"
         value={value}
         onChange={e => onChange(e.target.value)}
         className="search-exercises-list"

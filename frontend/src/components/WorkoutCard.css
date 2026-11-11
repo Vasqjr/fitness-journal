@@ -12,6 +12,13 @@
   width: 80%;
 
   .workout-card {
+    padding: 0;
+    border: 0;
+    background: transparent;
+    color: inherit;
+    font: inherit;
+    text-align: left;
+    cursor: pointer;
     margin: 0 auto;
     .workout-card-header {
       margin: 0;

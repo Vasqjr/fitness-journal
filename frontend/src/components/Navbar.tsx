@@ -1,4 +1,4 @@
-import { useNavigate, useLocation } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
 import { useState } from 'react';
 import { useMetricPreference, setMetricPreference } from '../utils/units';
@@ -6,13 +6,6 @@ import './Navbar.css';
 
 export default function Navbar() {
     const { logout, user } = useAuth();
-    const navigate = useNavigate();
-    const location = useLocation();
-
-    const isActive = (path: string) =>
-        location.pathname.startsWith(path)
-            ? { borderBottom: '2px solid #ac63f1', color: '#ac63f1' }
-            : { borderBottom: '2px solid transparent', color: '#555' };
 
     const [useMetric, setUseMetric] = useState(useMetricPreference());
 
@@ -24,49 +17,24 @@ export default function Navbar() {
     };
 
     return (
-        <nav id="navigation-wrapper">
+        <nav id="navigation-wrapper" aria-label="Primary navigation">
             <div className="navigation-items">
-                <span
-                    onClick={() => navigate('/workouts')}
-                    className='navigation-icon'
-                >
+                <Link to="/workouts" className="navigation-icon">
                     Fitness Journal
-                </span>
+                </Link>
                 <div className="navigation-elements">
-                    <span
-                        onClick={() => navigate('/workouts')}
-                        style={{
-                            ...isActive('/workouts')
-                        }}
-                        className='nav-element'
-                    >
+                    <NavLink to="/workouts" className="nav-element" end>
                         Workouts
-                    </span>
-                    <span
-                        onClick={() => navigate('/progress')}
-                        style={{
-                            ...isActive('/progress')
-                        }}
-                        className='nav-element'
-                    >
+                    </NavLink>
+                    <NavLink to="/progress" className="nav-element">
                         Progress
-                    </span>
-                    <span
-                        onClick={() => navigate('/exercises')}
-                        style={{
-                            ...isActive('/exercises')
-                        }}
-                        className='nav-element'
-                    >
+                    </NavLink>
+                    <NavLink to="/exercises" className="nav-element">
                         Exercises
-                    </span>
-                    <span
-                        onClick={() => navigate('/steps')}
-                        style={{ ...isActive('/steps') }}
-                        className='nav-element'
-                    >
+                    </NavLink>
+                    <NavLink to="/steps" className="nav-element">
                         Steps
-                    </span>
+                    </NavLink>
                 </div>
             </div>
             <div className="navigation-utilities">

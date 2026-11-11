@@ -33,18 +33,25 @@ export default function WorkoutsPage() {
     <div id="workout-page-wrapper">
       <div className="training-log-content">
         <h1 className="training-log-header">Training Log</h1>
-        <button className="training-log-new-workout-button standard-button" onClick={() => setShowForm(!showForm)}>
+        <button
+          className="training-log-new-workout-button standard-button"
+          aria-expanded={showForm}
+          onClick={() => setShowForm(!showForm)}
+        >
           + New Workout
         </button>
         {showForm && (
-          <form className="create-workout-form" onSubmit={handleCreate}>
+          <form id="create-workout-form" className="create-workout-form" onSubmit={handleCreate}>
             <input
+              aria-label="Workout name"
+              required
               placeholder="Workout name"
               value={name}
               onChange={e => setName(e.target.value)}
               className="create-workout-name-input"
             />
             <input
+              aria-label="Workout date"
               type="date"
               value={date}
               onChange={e => setDate(e.target.value)}
@@ -61,7 +68,6 @@ export default function WorkoutsPage() {
             <WorkoutCard
               key={workout.id}
               workout={workout}
-              onClick={() => navigate(`/workouts/${workout.id}`)}
               onDelete={async (e) => {
                 e.stopPropagation();
                 await deleteWorkout(workout.id);

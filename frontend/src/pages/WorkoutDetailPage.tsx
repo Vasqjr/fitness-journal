@@ -190,7 +190,12 @@ export default function WorkoutDetailPage() {
                 onUpdate={handleUpdateSet}
               />
             ))}
-            <button type="button" className="workout-set-group-add" onClick={() => handleAddAnother(group)}>
+            <button
+              type="button"
+              aria-label={`Add another ${group.exerciseName} set`}
+              className="workout-set-group-add"
+              onClick={() => handleAddAnother(group)}
+            >
               + Add set
             </button>
           </section>

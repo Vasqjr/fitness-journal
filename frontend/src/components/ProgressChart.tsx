@@ -25,7 +25,11 @@ export default function ProgressChart({ data, useMetric }: Props) {
   }));
 
   return (
-    <div id="progress-chart-wrap">
+    <div
+      id="progress-chart-wrap"
+      role="img"
+      aria-label={`Progress chart showing maximum weight and total volume in ${unit}.`}
+    >
       <ResponsiveContainer width="100%" height="100%">
         <LineChart className="progress-chart" data={chartData}>
           <CartesianGrid />

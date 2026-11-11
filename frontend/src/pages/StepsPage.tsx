@@ -201,7 +201,12 @@ export default function StepsPage() {
           </label>
           <div className="steps-quick-add">
             {QUICK_ADD.map(amount => (
-              <button key={amount} type="button" onClick={() => handleQuickAdd(amount)}>
+              <button
+                key={amount}
+                type="button"
+                aria-label={`Add ${amount.toLocaleString()} steps`}
+                onClick={() => handleQuickAdd(amount)}
+              >
                 +{amount.toLocaleString()}
               </button>
             ))}
@@ -249,12 +254,13 @@ export default function StepsPage() {
       <div className="steps-chart-display-wrap">
         <div className="steps-chart-display-top">
           <h3 className="steps-chart-display-header">Steps Per Day</h3>
-          <div className="steps-range-toggle">
+          <div className="steps-range-toggle" role="group" aria-label="Chart date range">
             {([7, 30] as const).map(days => (
               <button
                 key={days}
                 type="button"
                 className={days === rangeDays ? 'active' : ''}
+                aria-pressed={days === rangeDays}
                 onClick={() => setRangeDays(days)}
               >
                 {days} days

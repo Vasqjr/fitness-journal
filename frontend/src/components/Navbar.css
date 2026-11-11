@@ -23,6 +23,7 @@
       font-size: 1.125rem;
       cursor: pointer;
       color: var(--accent);
+      text-decoration: none;
     }
 
     .navigation-elements {
@@ -30,13 +31,19 @@
       gap: 1.5rem;
 
       .nav-element {
-        cursor: pointer;
+        display: inline-block;
         padding: 1rem 0;
         font-size: 0.875rem;
         font-weight: 500;
         white-space: nowrap;
         border-bottom: 2px solid transparent;
         color: #555;
+        text-decoration: none;
+
+        &.active {
+          border-bottom-color: #ac63f1;
+          color: #ac63f1;
+        }
       }
     }
   }

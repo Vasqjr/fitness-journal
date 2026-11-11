@@ -64,6 +64,7 @@ export default function ExercisesPage() {
         <h1 className="exercise-page-header">Exercises</h1>
         <button
           onClick={() => setShowForm(!showForm)}
+          aria-expanded={showForm}
           className="exercise-page-custom-button"
         >
           + Custom Exercise
@@ -71,17 +72,20 @@ export default function ExercisesPage() {
       </div>
 
       {showForm && (
-        <div className="exercise-page-form-wrapper">
+        <div id="exercise-create-form" className="exercise-page-form-wrapper">
           <h3 className="exercise-page-new-exercise-header">New Custom Exercise</h3>
-          {error && <p className="exercise-page-form-error">{error}</p>}
+          {error && <p className="exercise-page-form-error" role="alert">{error}</p>}
           <form className="exercise-page-form" onSubmit={handleCreate}>
             <input
+              aria-label="Exercise name"
+              required
               placeholder="Exercise name"
               value={name}
               onChange={e => setName(e.target.value)}
               className="exercise-name-input"
             />
             <select
+              aria-label="Muscle group"
               value={muscleGroup}
               onChange={e => setMuscleGroup(e.target.value)}
               className="exercise-muscle-group-select"
@@ -91,6 +95,7 @@ export default function ExercisesPage() {
               ))}
             </select>
             <input
+              aria-label="Exercise description (optional)"
               placeholder="Description (optional)"
               value={description}
               onChange={e => setDescription(e.target.value)}
@@ -117,12 +122,14 @@ export default function ExercisesPage() {
 
       <div className="exercise-page-search-wrapper">
         <input
+          aria-label="Search exercises"
           placeholder="Search exercises..."
           value={filter}
           onChange={e => setFilter(e.target.value)}
           className="exercise-page-search-input"
         />
         <select
+          aria-label="Filter exercises by muscle group"
           value={groupFilter}
           onChange={e => setGroupFilter(e.target.value)}
           className="exercise-page-search-filter"
@@ -159,6 +166,7 @@ export default function ExercisesPage() {
                 </div>
                 {ex.isCustom && (
                   <button
+                    aria-label={`Delete custom exercise ${ex.name}`}
                     onClick={() => handleDelete(ex.id)}
                     className="exercise-page-category-item-delete-button"
                   >

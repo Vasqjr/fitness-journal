@@ -30,25 +30,33 @@ export default function LoginPage() {
     <div id="auth-page-wrap">
       <div className="auth-card">
         <h1 className="auth-card-header">Fitness Journal</h1>
-        {error && <p className="auth-card-error">{error}</p>}
+        {error && <p className="auth-card-error" role="alert">{error}</p>}
         <form className="auth-form" onSubmit={handleSubmit}>
           <div className="auth-email-wrap">
-            <h2 className="auth-email-header">Email</h2>
+            <label htmlFor="login-email" className="auth-email-header">Email</label>
             <input
+              id="login-email"
+              name="email"
               type="email"
               placeholder="Email"
               value={email}
               onChange={e => setEmail(e.target.value)}
+              autoComplete="email"
+              required
               className="auth-field"
             />
           </div>
           <div className="auth-password-wrap">
-            <h2 className="auth-password-header">Password</h2>
+            <label htmlFor="login-password" className="auth-password-header">Password</label>
             <input
+              id="login-password"
+              name="password"
               type="password"
               placeholder="Password"
               value={password}
               onChange={e => setPassword(e.target.value)}
+              autoComplete="current-password"
+              required
               className="auth-field"
             />
           </div>
